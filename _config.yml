@@ -1,0 +1,24 @@
+title : Marie-Neige Chapel
+author :
+  name : Marie-Neige Chapel
+  email : marieneigecha@gmail.com
+  github : mnchapel
+
+baseurl: ""
+url: ""
+
+collections:
+  publications:
+    output: true
+    permalink: /publications/:path/
+  experiences:
+    output: true
+
+
+defaults:
+  - scope:
+      path: ""
+      type: publications
+    values:
+      hidden: true
+      layout: publication

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include meta.html %}
+		{% include css.html %}
+	</head>
+	<body>
+		{% include site_head.html %}
+		{% include navbar.html %}
+
+		<div class="container-fluid background-main">
+			<div class="container main-content">
+				<div class="row">
+					<h3 class="center">{{ page.title }}<h3>
+					<h4 class="center">{{ page.authors }}</h4>
+					<h5 class="center">{{ page.affiliation }}</h5>
+					<h5 class="center">
+						{% if page.pdf_filename %}
+							<a href="{{ site_url}}/assets/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
+						{% endif %}
+						{% if page.github_repository %}
+							<a href="{{ page.github_repository }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+						{% endif %}
+					</h5>
+					<br>
+					<p><b>Conference</b>: {{ page.conference }}</p>
+					<br>
+					<p><b>Abstract</b></p>
+					<p class="justify alinea">{{ page.abstract }}</p>
+					<br>
+					{% if page.citation %}
+						<p><b>Citation</b></p>
+						<div class="bibtex">
+							<p>
+								{{ page.publication_type }} { {{ page.key }},<br>
+									author={ {{ page.authors }} },<br>
+									title={ {{ page.title }} },<br>
+									booktitle={ {{ page.booktitle }} },<br>
+									year={ {{ page.date | date: "%Y" }} },<br>
+									pages={ {{ page.pages }} },<br>
+									doi={ {{ page.doi }} },<br>
+									isbn={ {{ page.isbn }} },<br>
+								}
+							</p>
+						<div>
+					{% endif %}
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-xs-12 footer">
+						{% include footer.html %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>

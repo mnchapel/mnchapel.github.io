@@ -1,0 +1,14 @@
+- name: type
+  required: true
+- name: location
+  required: true
+- name: title
+  required: true
+- name: organization
+  required: true
+- name: start_date
+  required: true
+- name: end_date
+  required: true
+- name: description
+  required: true

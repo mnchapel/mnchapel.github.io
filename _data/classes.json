@@ -1,0 +1,37 @@
+[
+  {
+    "title": "LiF1: Algorithmics, imperative programming, introduction (C) ",
+    "info": "Bachelor degree, 1st year, supervised & practical work",
+	"url":" http://odf-dev.univ-lyon1.fr/ue-3582-12/lif1:-algorithmique-et-programmation-(introduction).html"
+  },
+  {
+    "title": "LiF3: Algorithmics, functionnal programming and recursion (Scheme)",
+    "info": "Bachelor degree, 1st year, practical work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-286-12/lif3-algorithmique/programmation-fonctionnelle-et-recursive.html"
+  },
+  {
+    "title": "LiF5: Algorithmics and procedural programming (C/C++)",
+    "info": "Bachelor degree, 2nd year, practical work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-289-12/lif5-:-algorithmique-et-programmation-procedurale.html"
+  },
+  {
+    "title": "LiF14: Human computer interactions and ergonomics",
+    "info": "Bachelor degree, 3rd year, practical work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-8161-12/lif14:-interactions-homme-machine-et-ergonomie.html"
+  },
+  {
+    "title": "M1if16: Project management",
+    "info": "Master degree, 1st year, supervised work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-9274-155/m1if16-conduite-de-projet.html"
+  },
+  {
+    "title": "M1if31  : Generic programming (C++)",
+    "info": "Master degree, 1st year, practical work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-9285-155/m1if31-programmation-generique.html"
+  },
+  {
+    "title": "M1iF39  : Interdisciplinary project and innovative technologies",
+    "info": "Master degree, 1st year, practical work",
+	"url": "http://odf-dev.univ-lyon1.fr/ue-11271-155/m1if39-projet-transversal-et--technologies-innovantes.html"
+  }
+]

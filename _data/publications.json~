@@ -1,0 +1,15 @@
+[
+	{
+		"international": "True",
+		"authors": "Chapel, M-N., Guillou, E., and Bouakaz, S.",
+		"date": "February 2017",
+		"title" : "Coupled 2D and 3D Analysis for Moving Objects Detection with a Moving Camera",
+		"conference": "VISIGRAPP (VISAPP)",
+		"conference_url": "http://www.visigrapp.org/?y=2017",
+		"website_url": "visapp_2017.html",
+		"pages": "236-245",
+        "pdf": "https://doi.org/10.5220/0006132002360245",
+        "doi": "10.5220/0006132002360245"
+	},
+
+]

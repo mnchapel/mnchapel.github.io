@@ -1,0 +1,85 @@
+---
+layout: default
+title: Teaching
+---
+
+<h4>2014-2017</h4>
+<h5>Teaching at Université Claude Bernard, Lyon 1, France</h5>
+
+<ul class="fa-ul">
+	{% for classes in site.data.classes %}
+		<li>
+			<a href="{{ classes.url }}">
+				<i class="fa-li fa fa-chevron-right"></i>{{ classes.title }}
+				<sub>
+					<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+				</sub>
+			</a>
+		</li>
+		<p style="margin-bottom:10px">
+		<i style="color: grey">{{ classes.info }}</i>
+	{% endfor %}
+
+
+<!--
+	<li>
+		<a href="http://odf-dev.univ-lyon1.fr/ue-3582-12/lif1:-algorithmique-et-programmation-(introduction).html">
+			<i class="fa-li fa fa-chevron-right"></i> LiF1: Algorithmics, imperative programming, introduction (C)
+			<sub>
+				<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+			</sub>
+		</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Bachelor degree, 1st year, supervised &amp; practical work</i>
+
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-286-12/lif3-algorithmique/programmation-fonctionnelle-et-recursive.html"><i class="fa-li fa fa-chevron-right"></i> LiF3<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Algorithmics, functionnal programming and recursion (Scheme)</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Bachelor degree, 1st year, practical work</i>
+
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-289-12/lif5-:-algorithmique-et-programmation-procedurale.html"><i class="fa-li fa fa-chevron-right"></i> LiF5<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Algorithmics and procedural programming (C/C++)</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Bachelor degree, 2nd year, practical work</i>
+	<br>Content:</p>
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-8161-12/lif14:-interactions-homme-machine-et-ergonomie.html"><i class="fa-li fa fa-chevron-right"></i> LiF14<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Human computer interactions and ergonomics</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Bachelor degree, 3rd year, practical work</i>
+	<br>Content:</p>
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-9274-155/m1if16-conduite-de-projet.html"><i class="fa-li fa fa-chevron-right"></i>M1if16<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Project management</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Master degree, 1st year, supervised work</i>
+	<br>Content:</p>
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-9285-155/m1if31-programmation-generique.html"><i class="fa-li fa fa-chevron-right"></i>M1if31<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Generic programming (C++)</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Master degree, 1st year, practical work</i>
+	<br>Content:</p>
+	<li>
+	<a href="http://odf-dev.univ-lyon1.fr/ue-11271-155/m1if39-projet-transversal-et--technologies-innovantes.html"><i class="fa-li fa fa-chevron-right"></i>M1iF39<sub>
+	<span class="flag-icon flag-icon-fr flag-icon-square"></span>
+	</sub>: Interdisciplinary project and innovative technologies</a>
+	</li>
+	<p style="margin-bottom:10px">
+	<i style="color: grey">Master degree, 1st year, practical work</i>
+	<br>Content:</p>
+	-->
+</ul>

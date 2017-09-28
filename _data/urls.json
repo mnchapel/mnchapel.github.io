@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Home",
+    "url": "/",
+  },
+  {
+    "text": "Research",
+    "url": "/research",
+  },
+  {
+    "text": "Publications",
+    "url": "/publi"
+  },
+  {
+    "text": "Teaching",
+    "url": "/teaching"
+  },
+  {
+    "text": "CV",
+    "url": "/cv"
+  }
+]

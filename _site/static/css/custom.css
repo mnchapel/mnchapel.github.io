@@ -1,0 +1,64 @@
+.head-name {
+	font-family: "Times New Roman", Georgia, Serif;
+}
+
+.background-main {
+	background-color: #ecdfdf
+}
+
+.container-fluid {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.flex-row {
+	display: flex;
+}
+
+.d-flex {
+	display: flex!important;
+}
+
+.justify-content-between {
+	justify-content: space-between!important;
+}
+
+.main-content {
+	background-color: #ffffff;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.center {
+	text-align: center;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.alinea {
+	text-indent: 15px;
+}
+
+.bibtex {
+	background-color: #ececec;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.social-icon {
+	color: #000000
+}
+
+a {
+	color: #000000
+}

@@ -1,0 +1,27 @@
+<nav id="navMenu" class="navbar navbar-default">
+	<div class="container">
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-left">
+				{% for i in site.data.urls %}
+					{% assign current = nil %}
+					{% assign pageurl = page.url | split:'/' | last %}
+					{% assign menuurl = i.url | split:'/' | last %}
+					{% assign linkurl = nil %}
+					{% if i.url contains '://' %}
+					{% assign linkurl = i.url %}
+					{% else %}
+					{% assign linkurl = i.url | prepend: site.baseurl %}
+					{% endif %}
+					{% assign target = i.target %}
+					{% unless target %} {% assign target = '_self' %} {% endunless %}
+					{% if pageurl == menuurl or page.layout == i.layout %} {% assign current = 'current-menu-item' %} {% endif %}
+					<li><a href="{{ linkurl }}" target="{{ target }}">{{ i.text }}</a></li>
+				{% endfor %}
+				<!--<li><a href="#research">RESEARCH</a></li>
+				<li><a href="publicationsList.html">PUBLICATIONS</a></li>
+				<li><a href="#teaching">TEACHING</a></li>
+				<li><a href="#contact">CONTACT</a></li>-->
+			</ul>
+		</div>
+	</div>
+</nav>
