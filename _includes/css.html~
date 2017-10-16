@@ -1,6 +1,0 @@
-<!-- BootStrap Styles -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<!-- Optional Theme -->
-<link rel="stylesheet" href="{{ site.baseurl }}/static/css/custom.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/static/academicons-1.8.0/css/academicons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

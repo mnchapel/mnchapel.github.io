@@ -40,7 +40,10 @@ permalink: /cv
 						{{ experience.organization }}, {{ experience.location }}<br>
 					{% endif %}
 					{{ experience.title }}<br>
-					{{ experience.description }}
+					{% if experience.description %}
+						{{ experience.description }}
+					{% else %}
+						<a href="{{ experience.description_url }}">[+ more information]</a>
 				</td>
 			</tr>
 		{% endfor %}

@@ -13,4 +13,6 @@
 - name: end_date
   required: true
 - name: description
-  required: true
+  required: false
+- name: description_url
+  required: false
