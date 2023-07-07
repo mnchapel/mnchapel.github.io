@@ -3,13 +3,18 @@ layout: default
 title: Teaching
 ---
 
-<h4>2014-2017</h4>
-<h5>Teaching at Université Claude Bernard, Lyon 1, France</h5>
+<div class="container">
+<div class="row">
+	<h4>2014-2017</h4>
+</div>
+<div class="row">
+	<h5>Teaching at Université Claude Bernard, Lyon 1, France</h5>
+</div>
 
 <ul class="fa-ul">
 	{% for classes in site.data.classes %}
 		<li>
-			<a href="{{ classes.url }}">
+			<a href="{{ classes.url }}">
 				<i class="fa-li fa fa-chevron-right"></i>{{ classes.title }}
 				<sub>
 					<span class="flag-icon flag-icon-fr flag-icon-square"></span>
@@ -19,7 +24,7 @@ title: Teaching
 		<p style="margin-bottom:10px">
 		<i style="color: grey">{{ classes.info }}</i>
 	{% endfor %}
-
+</div>
 
 <!--
 	<li>

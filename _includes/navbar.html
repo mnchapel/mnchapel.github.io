@@ -1,26 +1,26 @@
-<nav id="navMenu" class="navbar navbar-default">
+<nav id="navMenu" class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav navbar-left">
+			<ul class="navbar-nav mr-auto">
 				{% for i in site.data.urls %}
 					{% assign current = nil %}
 					{% assign pageurl = page.url | split:'/' | last %}
 					{% assign menuurl = i.url | split:'/' | last %}
 					{% assign linkurl = nil %}
 					{% if i.url contains '://' %}
-					{% assign linkurl = i.url %}
+						{% assign linkurl = i.url %}
 					{% else %}
-					{% assign linkurl = i.url | prepend: site.baseurl %}
+						{% assign linkurl = i.url | prepend: site.baseurl %}
 					{% endif %}
 					{% assign target = i.target %}
-					{% unless target %} {% assign target = '_self' %} {% endunless %}
-					{% if pageurl == menuurl or page.layout == i.layout %} {% assign current = 'current-menu-item' %} {% endif %}
-					<li class="{{ current }} {{ pageurl }}"><a href="{{ linkurl }}" target="{{ target }}">{{ i.text }}</a></li>
+					{% unless target %}
+						{% assign target = '_self' %}
+					{% endunless %}
+					{% if pageurl == menuurl or page.layout == i.layout %}
+						{% assign current = 'current-menu-item' %}
+					{% endif %}
+					<li class="nav-item active"><a class="nav-link" href="{{ linkurl }}" target="{{ target }}">{{ i.text }}</a></li>
 				{% endfor %}
-				<!--<li><a href="#research">RESEARCH</a></li>
-				<li><a href="publicationsList.html">PUBLICATIONS</a></li>
-				<li><a href="#teaching">TEACHING</a></li>
-				<li><a href="#contact">CONTACT</a></li>-->
 			</ul>
 		</div>
 	</div>

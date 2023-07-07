@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include meta.html %}
+		{% include css.html %}
+	</head>
+	<body>
+		{% include site_head.html %}
+		{% include navbar.html %}
+
+		<div class="container-fluid background-main">
+			<div class="container main-content">
+
+				<div class="row justify-content-center">
+					<h3>{{ page.title }}<h3>
+				</div>
+
+				{% if page.partners %}
+					<div class="row">
+						<p><b>Partners</b>: {{page.partners}} </p>
+					</div>
+				{% endif %}
+
+				<div class="row">
+					<p><b>Members</b>:</p>
+				</div>
+				<div class="row">
+					<ul>
+						{% for member in page.members %}
+							<li>{{member}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+					
+				<div class="row">
+					<p><b>Abstract</b></p>
+					<p class="justify alinea">{{page.abstract}}</p>
+				</div>
+				
+				<div class="row">
+					<p><b>Keywords</b>: {{page.keywords}}</p>
+				</div>
+				
+				{% if page.committee %}
+					<div class="row">
+						<p><b>Committee</b></p><br>
+					</div>
+					<div class="row">
+						<ul>
+							{% for item in page.committee %}
+								<li>{{item}}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+				
+				{% if page.publications %}
+					<div class="row">
+						<p><b>Publications</b>
+						{% if page.publications.first %}
+						</p>
+						</div>
+						<ul>
+							{% for item in page.publications %}
+								{% assign publi_list = site.publications %}
+								{% for publi in publi_list %}
+									{% if item == publi.filename %}
+										{% assign publi_year = publi.date | date: "%Y" %}
+										<li>{{publi.authors}}, "{{publi.title}}", {% if publi.conference %} {{publi.conference}} {% elsif publi.journal %} {{publi.journal}} {% endif %}, {{publi_year}}</li>
+									{% endif %}
+								{% endfor %}
+							{% endfor %}
+						</ul>
+						{% else %}
+							: {{page.publications}}</p></div>
+						{% endif %}
+				{% endif %}
+
+			</div>
+		</div>
+
+	</body>
+</html>

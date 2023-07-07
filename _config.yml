@@ -11,6 +11,9 @@ collections:
   publications:
     output: true
     permalink: /publications/:path/
+  research_projects:
+    output: true
+    permalink: /research_projects/:path/
   experiences:
     output: true
 
@@ -22,3 +25,9 @@ defaults:
     values:
       hidden: true
       layout: publication
+  - scope:
+      path: ""
+      type: research_projects
+    values:
+      hidden: true
+      layout: research_project
