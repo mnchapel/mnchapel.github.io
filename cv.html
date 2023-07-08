@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Research
+title: CV
 permalink: /cv
 ---
 {% assign sorted_publi = site.publications | sort:"date" | reverse %}
 
-<h4>Publications</h5>
-<table class="table">
+<h3>Publications</h3>
+<table class="table mb-4">
 	<thead></thead>
 	<tbody>
 		{% for publication in sorted_publi %}
@@ -14,7 +14,7 @@ permalink: /cv
 				<td class="col-md-2">{{ publication.date | date: "%Y" }}</td>
 				<td>
 					<b>{{ publication.title }}</b><br>
-					{{ publication.authors }}<br>
+					{{ publication.authors }}<br>
 					{{ publication.conference }}	
 				</td>
 			</tr>
@@ -25,26 +25,70 @@ permalink: /cv
 
 {% assign sorted_xp = site.experiences | sort:"start_date" | reverse %}
 
-<h4>Professional Experience</h5>
-<table class="table">
+<h3>Professional Experience</h3>
+<table class="table mb-4">
 	<thead></thead>
 	<tbody>
 		{% for experience in sorted_xp %}
 			<tr>
-				<td class="col-md-2">{{ experience.start_date | date: "%b %Y" }} - {{ experience.end_date | date: "%b %Y" }}</td>
+				<td class="col-md-2">{{ experience.start_date | date: "%b %Y" }} <br> {{ experience.end_date | date: "%b %Y" }}</td>
 				<td>
-					<b>{{ experience.type }}</b><br>
-					{% if experience.organization_url %}
-						<a href="{{ experience.organization_url }}">{{ experience.organization }}</a>, {{ experience.location }}<br>
-					{% else %}
-						{{ experience.organization }}, {{ experience.location }}<br>
-					{% endif %}
-					{{ experience.title }}<br>
-					{% if experience.description %}
-						{{ experience.description }}
-					{% endif %}
+					<p>
+						<b>{{ experience.type }}</b>, 
+					
+						{% if experience.organization_url %}
+							<i><a href="{{ experience.organization_url }}">{{ experience.organization }} <i class="fa fa-external-link" style="font-size:10px"></i></a>, {{ experience.location }}</i><br>
+						{% else %}
+							<i>{{ experience.organization }}, {{ experience.location }}</i><br>
+						{% endif %}
+					</p>
+					
+					<p>
+						{% if experience.title.first %}
+							Projects:
+							<ul>
+								{% assign research_projects = site.research_projects %}
+								{% for xp_title in experience.title %}
+									{% for research_proj in research_projects %}
+										{% if research_proj.filename == xp_title %}
+											<li><a href="research_projects/{{ research_proj.filename }}">"{{ research_proj.title }}" <i class="fa fa-link"></i></a></li>
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+							</ul>
+						{% else %}
+							"{{ experience.title }}"<br>
+						{% endif %}
+						
+						{% if experience.description %}
+							{{ experience.description }}<br>
+						{% endif %}
+						<br>
+
+						{% if experience.supervisors %}
+							Supervisors: {{ experience.supervisors }}
+						{% elsif experience.colleagues %}
+							Colleagues: {{ experience.colleagues }}
+						{% endif %}
+					</p>
 				</td>
 			</tr>
 		{% endfor %}
+	</tbody>
+</table>
+
+<h3>Skills</h3>
+<table class="table">
+	<thead></thead>
+	<tbody>
+		<tr>
+			<td class="col-md-2"></td>
+			<td>
+				Windows, Linux<br>
+				Modern C++, Python, Octave<br>
+				OpenCV, PyTorch, Qt<br>
+				Git, CMake
+			</td>
+		</tr>
 	</tbody>
 </table>
