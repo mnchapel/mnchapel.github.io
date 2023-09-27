@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Website settings
+# -----------------------------------------------------------------------------
+
 title : Marie-Neige Chapel
 author :
   name : Marie-Neige Chapel
@@ -7,27 +11,81 @@ author :
 baseurl: ""
 url: ""
 
+# -----------------------------------------------------------------------------
+# Library versions
+# -----------------------------------------------------------------------------
+
+mdb:
+  version: "4.20.0"
+  integrity:
+    css: "sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw="
+    js: "sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA="
+
+# -----------------------------------------------------------------------------
+# Layout
+# -----------------------------------------------------------------------------
+
+max_width: 800px
+
+# -----------------------------------------------------------------------------
+# Collections
+# -----------------------------------------------------------------------------
+
 collections:
+  pages:
+    output: true
   publications:
     output: true
     permalink: /publications/:path/
-  research_projects:
+  projects:
     output: true
-    permalink: /research_projects/:path/
+    permalink: /projects/:path/
   experiences:
     output: true
 
 
-defaults:
-  - scope:
-      path: ""
-      type: publications
-    values:
-      hidden: true
-      layout: publication
-  - scope:
-      path: ""
-      type: research_projects
-    values:
-      hidden: true
-      layout: research_project
+# defaults:
+#   - scope:
+#       path: ""
+#       type: publications
+#     values:
+#       hidden: true
+#       layout: publication
+#   - scope:
+#       path: ""
+#       type: projects
+#     values:
+#       hidden: true
+#       layout: research_project
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+include: 
+  - "_pages"
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+plugins:
+  - jekyll-imagemagick
+
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+
+imagemagick:
+  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+  output_formats:
+    webp: "-resize 800x"

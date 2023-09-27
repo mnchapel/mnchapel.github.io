@@ -1,0 +1,11 @@
+- title: Education
+  contents:
+    - title: PhD in Computer Science
+      institution: Université Claude Bernard Lyon 1 (France)
+      year: 2017
+    - title: M.Sc. in Computer Science
+      institution: Université Claude Bernard Lyon 1 (France)
+      year: 2013
+- title: Publication
+  contents:
+    - title: Hologram authentication

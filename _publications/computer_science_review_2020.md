@@ -1,8 +1,10 @@
 ---
+layout: publication
+title: "Moving Objects Detection with a Moving Camera: A Comprehensive Review"
+
 filename: computer_science_review_2020
 publication_type: article
 key: csreview_2020
-title: "Moving Objects Detection with a Moving Camera: A Comprehensive Review"
 authors: MN. Chapel, T. Bouwmans
 affiliation: Lab. L3I, LRUniv., Avenue Albert Einstein, 17000 La Rochelle, France </br> Lab. MIA, LRUniv., Avenue Albert Einstein, 17000 La Rochelle, France
 journal: Computer Science Review

@@ -1,25 +1,45 @@
-<nav id="navMenu" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
 	<div class="container">
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="navbar-nav mr-auto">
-				{% for i in site.data.urls %}
-					{% assign current = nil %}
-					{% assign pageurl = page.url | split:'/' | last %}
-					{% assign menuurl = i.url | split:'/' | last %}
+		{% if page.permalink != '/' %}
+			<a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+				{% if site.title == "blank" %}
+					{% if site.first_name %}
+						<span class="font-weight-bold">{{ site.first_name }}&nbsp;</span>
+					{% endif %}
+					{% if site.middle_name %}
+						{{ site.middle_name }}&nbsp;
+					{% endif %}
+					{% if site.last_name %}
+						{{ site.last_name }}
+					{% endif %}
+				{% else %}
+					{{ site.title }}
+				{% endif %}
+			</a>
+		{% endif %}
+
+		<div class="collapse navbar-collapse text-right" id="navbarNav">
+			<ul class="navbar-nav ml-auto flex-nowrap">
+				{% for site_page in site.pages %}
+
 					{% assign linkurl = nil %}
-					{% if i.url contains '://' %}
-						{% assign linkurl = i.url %}
+
+					{% if page.url contains '://' %}
+						{% assign linkurl = contains %}
 					{% else %}
-						{% assign linkurl = i.url | prepend: site.baseurl %}
+						{% assign linkurl = site_page.url | prepend: site.baseurl %}
 					{% endif %}
-					{% assign target = i.target %}
-					{% unless target %}
-						{% assign target = '_self' %}
-					{% endunless %}
-					{% if pageurl == menuurl or page.layout == i.layout %}
-						{% assign current = 'current-menu-item' %}
+					
+					{% assign title_downcase = {{site_page.title | downcase}} %}
+					
+					{% if site_page.url == "/" %}
+						<li class="nav-item {% if page.title == 'About' %} active {% endif %}">
+					{% else %}
+						<li class="nav-item {% if page.url contains title_downcase %} active {% endif %}">
 					{% endif %}
-					<li class="nav-item active"><a class="nav-link" href="{{ linkurl }}" target="{{ target }}">{{ i.text }}</a></li>
+						<a class="nav-link" href="{{ linkurl }}">{{ site_page.title }}</a>
+					</li> 
+
 				{% endfor %}
 			</ul>
 		</div>

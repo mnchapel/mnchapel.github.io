@@ -1,8 +1,10 @@
 ---
+layout: publication
+title: Coupled 2D and 3D Analysis for Moving Objects Detection with a Moving Camera
+
 filename: visapp_2017
 publication_type: inproceedings
 key: visapp17
-title: Coupled 2D and 3D Analysis for Moving Objects Detection with a Moving Camera
 authors: MN. Chapel, E. Guillou, S. Bouakaz
 affiliation: Université de Lyon, CNRS, Université Lyon 1, LIRIS, UMR5205, F-69622, Lyon, France
 conference: VISIGRAPP (VISAPP)

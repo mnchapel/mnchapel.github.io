@@ -1,87 +1,77 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		{% include meta.html %}
-		{% include css.html %}
-	</head>
-	<body>
-		{% include site_head.html %}
-		{% include navbar.html %}
+---
+layout: default
+---
 
-		<div class="container-fluid background-main">
-			<div class="container main-content">
+<div class="post">
+	<div class="article">
 
-				<div class="row justify-content-center">
-					<h3>{{ page.title }}<h3>
-				</div>
+		<header class="post-header">
+			<h1 class="post-title center">{{ page.title }}</h1>
+		</header>
 
-				<div class="row justify-content-center">
-					<h4>{{ page.authors }}</h4>
-				</div>
-
-				<div class="row justify-content-center">
-					<h5>{{ page.affiliation }}</h5>
-				</div>
-				
-				<div class="row justify-content-center">
-					<h5>
-						{% if page.pdf_filename %}
-							<a href="{{ site_url}}/assets/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
-						{% endif %}
-						{% if page.github_repository %}
-							<a href="{{ page.github_repository }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-						{% endif %}
-					</h5>
-				</div>
-				
-				<div class="row">
-					{% if page.conference %}
-						<p><b>Conference</b>: {{ page.conference }}</p>
-					{% elsif page.journal %}
-						<p><b>Journal</b>: {{ page.journal }}</p>
-					{% endif %}
-				</div>
-				
-				<div class="row">
-					<p><b>Abstract</b></p>
-					<p class="justify alinea">{{ page.abstract }}</p>
-				</div>
-				
-				{% if page.citation %}
-					<div class="row">
-						<p><b>Citation</b></p>
-					</div>
-					<div class="row">
-						<div class="bibtex">
-							<p>
-								{{ page.publication_type }} { {{ page.key }},<br>
-									author={ {{ page.authors }} },<br>
-									title={ {{ page.title }} },<br>
-									{% if page.booktitle %}
-									booktitle={ {{ page.booktitle }} },<br>
-									{% elsif page.journal %}
-									journal={ {{ page.journal }} },<br>
-									{% endif %}
-									year={ {{ page.date | date: "%Y" }} },<br>
-									pages={ {{ page.pages }} },<br>
-									doi={ {{ page.doi }} },<br>
-									{% if page.isbn %}
-										isbn={ {{ page.isbn }} },<br>
-									{% endif %}
-								}
-							</p>
-						<div>
-					</div>
-				{% endif %}
-
-				<div class="row">
-					<div class="col-md-12 col-xs-12 footer">
-						{% include footer.html %}
-					</div>
-				</div>
-			</div>
+		<div class="row justify-content-center">
+			<h4>{{ page.authors }}</h4>
 		</div>
 
+		<div class="row justify-content-center">
+			<h5>{{ page.affiliation }}</h5>
+		</div>
+		
+		<div class="row justify-content-center">
+			<h5>
+				{% if page.pdf_filename %}
+					<a href="{{ site_url}}/assets/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
+				{% endif %}
+				{% if page.github_repository %}
+					<a href="{{ page.github_repository }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+				{% endif %}
+			</h5>
+		</div>
+		
+		<div class="row">
+			{% if page.conference %}
+				<p><b>Conference</b>: {{ page.conference }}</p>
+			{% elsif page.journal %}
+				<p><b>Journal</b>: {{ page.journal }}</p>
+			{% endif %}
+		</div>
+		
+		<div class="row">
+			<p><b>Abstract</b></p>
+			<p class="justify alinea">{{ page.abstract }}</p>
+		</div>
+		
+		{% if page.citation %}
+			<div class="row">
+				<p><b>Citation</b></p>
+			</div>
+			<div class="row">
+				<div class="bibtex">
+					<p>
+						{{ page.publication_type }} { {{ page.key }},<br>
+							author={ {{ page.authors }} },<br>
+							title={ {{ page.title }} },<br>
+							{% if page.booktitle %}
+							booktitle={ {{ page.booktitle }} },<br>
+							{% elsif page.journal %}
+							journal={ {{ page.journal }} },<br>
+							{% endif %}
+							year={ {{ page.date | date: "%Y" }} },<br>
+							pages={ {{ page.pages }} },<br>
+							doi={ {{ page.doi }} },<br>
+							{% if page.isbn %}
+								isbn={ {{ page.isbn }} },<br>
+							{% endif %}
+						}
+					</p>
+				<div>
+			</div>
+		{% endif %}
 
-	</body>
-</html>
+		<div class="row">
+			<div class="col-md-12 col-xs-12 footer">
+				{% include footer.html %}
+			</div>
+		</div>
+	</div>
+</div>

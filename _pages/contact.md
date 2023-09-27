@@ -1,0 +1,6 @@
+---
+permalink: /contact
+layout: contact
+
+title: Contact
+---

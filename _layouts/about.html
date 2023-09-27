@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+
+<div class="post">
+	
+	<header class="post-header">
+	  <h1 class="post-title">
+		{{ site.title }}
+	  </h1>
+	  <p class="desc">{{ page.subtitle }}</p>
+	</header>
+
+	<article>
+		<div class="profile float-right">
+			{% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+			{% assign profile_image_class = "img-fluid z-depth-1 rounded-circle" %}
+
+			{% include figure.html
+				path=profile_image_path
+				class=profile_image_class
+				alt=page.image %}
+
+			<div class="address">
+				{{ page.profile.address }}
+			</div>
+		</div>
+
+		<div class="clearfix">
+			{{ content }}
+			<br>
+			<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between">
+				<div class="repo p-2">
+					<h4>Interests</h4>
+					<ul>
+						{% for interest in page.interests %}
+							<li>{{ interest }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="repo p-2">
+					<h4>Education</h4>
+					<ul>
+						{% for entry in site.data.cv %}
+							{% if entry.title == "Education" %}
+								{% for content in entry.contents %}
+									<li>{{ content.title }}</li>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+</div>

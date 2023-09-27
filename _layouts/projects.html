@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="post">
+	
+	<header class="post-header">
+		<h1 class="post-title">{{ page.title }}</h1>
+		<p class="post-description">{{ page.description }}</p>
+	</header>
+
+	<div class="article">
+		{%- for category in page.display_categories %}
+
+			<h3 class="category">{{ category | capitalize }}</h3>
+			
+			<div class="projects">  				
+				{% assign categorized_projects = site.projects | where: "category", category %}
+				{% assign sorted_projects = categorized_projects | sort:"date_start" | reverse %}
+
+				{% for project in sorted_projects %}
+					<a href="{{ project.url | relative_url }}">
+						<div class="card hoverable">
+
+							{% assign img_class = "img-fluid z-depth-1" %}
+							{% assign img_path = project.img_filename %}
+							{% include figure.html
+								path=img_path
+								class=img_class
+								alt=page.image %}
+								
+							<div class="card-body">
+								<p class="card-title">{{ project.title }}</p>
+							</div>
+							<hr>
+							<p class="card-text center">{{ project.type }}</p>
+						</div>
+					</a>
+				{% endfor %}
+					
+			</div>
+		{% endfor %}
+	</div>
+</div>

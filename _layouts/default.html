@@ -4,9 +4,11 @@
 		{% include meta.html %}
 		{% include css.html %}
 	</head>
-	<body>
-		{% include site_head.html %}
-		{% include navbar.html %}
+	<body class="fixed-top-nav">
+		<header>
+			{% include navbar.html %}
+			<hr/>
+		</header>
 		{% include main.html %}
 	</body>
 </html>
