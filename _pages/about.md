@@ -3,7 +3,7 @@ permalink: /
 layout: about
 title: About
 
-navbar_id: 0
+navbar_order: 0
 
 profile:
   image: photo_profil.jpg

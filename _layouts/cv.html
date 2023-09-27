@@ -2,92 +2,145 @@
 layout: default
 ---
 
-{% assign sorted_publi = site.publications | sort:"date" | reverse %}
+<div class="post">
+	
+	<header class="post-header">
+		<h1 class="post-title">{{ page.title }}</h1>
+	</header>
 
-<h3>Publications</h3>
-<table class="table mb-4">
-	<thead></thead>
-	<tbody>
-		{% for publication in sorted_publi %}
-			<tr>
-				<td class="col-md-2">{{ publication.date | date: "%Y" }}</td>
-				<td>
-					<b>{{ publication.title }}</b><br>
-					{{ publication.authors }}<br>
-					{{ publication.conference }}	
-				</td>
-			</tr>
-		{% endfor %}
-	</tbody>
-</table>
-<br>
+	<br>
 
-{% assign sorted_xp = site.experiences | sort:"start_date" | reverse %}
+	<div class="article">
 
-<h3>Professional Experience</h3>
-<table class="table mb-4">
-	<thead></thead>
-	<tbody>
-		{% for experience in sorted_xp %}
-			<tr>
-				<td class="col-md-2">{{ experience.start_date | date: "%b %Y" }} <br> {{ experience.end_date | date: "%b %Y" }}</td>
-				<td>
-					<p>
-						<b>{{ experience.type }}</b>, 
-					
-						{% if experience.organization_url %}
-							<i><a href="{{ experience.organization_url }}">{{ experience.organization }} <i class="fa fa-external-link" style="font-size:10px"></i></a>, {{ experience.location }}</i><br>
-						{% else %}
-							<i>{{ experience.organization }}, {{ experience.location }}</i><br>
-						{% endif %}
-					</p>
-					
-					<p>
-						{% if experience.title.first %}
-							Projects:
-							<ul>
-								{% assign projects = site.projects %}
-								{% for xp_title in experience.title %}
-									{% for research_proj in projects %}
-										{% if research_proj.filename == xp_title %}
-											<li><a href="projects/{{ research_proj.filename }}">"{{ research_proj.title }}" <i class="fa fa-link"></i></a></li>
+		<!-- General -->
+		<div class="card mt-3 p-4">
+
+			<h3 class="card-title cv-category">General</h3>
+			
+			<div>
+				<table class="table-borderless">
+					<tbody>
+						<tr>
+							<td class="p-1 pr-2 font-weight-bold"><b>Full Name</b></td>
+							<td class="p-1 pl-2 font-weight-light text"><b>Marie-Neige Chapel</b></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Publications -->
+		{% assign sorted_publi = site.publications | sort:"date" | reverse %}
+
+		<div class="card mt-3 p-4">
+			<h3 class="card-title cv-category">Publications</h3>
+			<div>
+				<ul class="card-text list-group list-group-flush">
+					{% for publication in sorted_publi %}
+						<li class="list-group-item">
+							<div class="row">
+								<div class="col-xs-2 cl-sm-2 col-md-2 text-center">
+									{{ publication.date | date: "%Y" }}
+								</div>
+								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
+									<b>{{ publication.title }}</b><br>
+									{{ publication.authors }}<br>
+									{{ publication.conference }}	
+								</div>
+							</tr>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<br>
+
+		<!-- Professional Experience -->
+		{% assign sorted_xp = site.experiences | sort:"start_date" | reverse %}
+
+		<div class="card mt-3 p-4">
+			
+			<h3 class="card-title cv-category">Professional Experience</h3>
+
+			<div>
+				<ul class="card-text list-group list-group-flush">
+					{% for experience in sorted_xp %}
+						<li class="list-group-item">
+							<div class="row">
+								<div class="col-xs-2 cl-sm-2 col-md-2 text-center">
+									{{ experience.start_date | date: "%b %Y" }}
+									<br>
+									{{ experience.end_date | date: "%b %Y" }}
+								</div>
+								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
+									<p>
+										<b>{{ experience.type }}</b>, 
+									
+										{% if experience.organization_url %}
+											<i><a href="{{ experience.organization_url }}">{{ experience.organization }} <i class="fa fa-external-link" style="font-size:10px"></i></a>, {{ experience.location }}</i><br>
+										{% else %}
+											<i>{{ experience.organization }}, {{ experience.location }}</i><br>
 										{% endif %}
-									{% endfor %}
-								{% endfor %}
-							</ul>
-						{% else %}
-							"{{ experience.title }}"<br>
-						{% endif %}
-						
-						{% if experience.description %}
-							{{ experience.description }}<br>
-						{% endif %}
-						<br>
+									</p>
+									
+									<p>
+										{% if experience.title.first %}
+											Projects:
+											<ul>
+												{% assign projects = site.projects %}
+												{% for xp_title in experience.title %}
+													{% for research_proj in projects %}
+														{% if research_proj.filename == xp_title %}
+															<li><a href="projects/{{ research_proj.filename }}">"{{ research_proj.title }}" <i class="fa fa-link"></i></a></li>
+														{% endif %}
+													{% endfor %}
+												{% endfor %}
+											</ul>
+										{% else %}
+											"{{ experience.title }}"<br>
+										{% endif %}
+										
+										{% if experience.description %}
+											{{ experience.description }}<br>
+										{% endif %}
+										<br>
 
-						{% if experience.supervisors %}
-							Supervisors: {{ experience.supervisors }}
-						{% elsif experience.colleagues %}
-							Colleagues: {{ experience.colleagues }}
-						{% endif %}
-					</p>
-				</td>
-			</tr>
-		{% endfor %}
-	</tbody>
-</table>
+										{% if experience.supervisors %}
+											Supervisors: {{ experience.supervisors }}
+										{% elsif experience.colleagues %}
+											Colleagues: {{ experience.colleagues }}
+										{% endif %}
+									</p>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
 
-<h3>Skills</h3>
-<table class="table">
-	<thead></thead>
-	<tbody>
-		<tr>
-			<td class="col-md-2"></td>
-			<td>
-				Windows, Linux<br>
-				Modern C++, Python, Octave<br>
-				OpenCV, PyTorch, Qt<br>
-				Git, CMake
-			</td>
-		</tr>
-	</tbody>
-</table>
+		<!-- Skills -->
+		<div class="card mt-3 p-4">
+
+			<h3 class="card-title cv-category">Skills</h3>
+			
+			<div>
+				<ul class="card-text list-group list-group-flush">
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-xs-2 cl-sm-2 col-md-2 text-center"></div>
+							<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
+									Windows, Linux<br>
+									Modern C++, Python, Octave<br>
+									OpenCV, PyTorch, Qt<br>
+									Git, CMake
+							</div>
+						</div>
+					</li>
+				</li>
+			</div>
+		</div>
+
+	</div>
+</div>
