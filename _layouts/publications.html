@@ -2,31 +2,41 @@
 layout: default
 ---
 
-<div class="container">
+<div class="post">
 
-	{% assign sorted_publi = site.publications | sort:"date" | reverse %}
-	{% for publication in sorted_publi %}
-		{% assign current_date = publication.date | date: "%Y" %}
-		{% if current_date != date %}
-			<h4>{{ current_date }}</h4>
-			{% assign date = current_date %}
-		{% endif %}
-		
-		<div class="list-group">
-			<a class="list-group-item list-group-item-action align-items-start" href="{{ publication.url | relative_url }}">
-				<div class="d-flex flex-row justify-content-between">
-					<h5><b>{{ publication.title }}</b></h5>
-					<h5>{{ publication.date | date: "%B %Y" }}</h5>
-				</div>
-				<h5>{{ publication.authors }}</h5>
-				{% if publication.conference %}
-					<h5>{{ publication.conference }}</h5>
-				{% elsif publication.journal %}
-					<h5>{{ publication.journal }}</h5>
-				{% endif %}
-			</a>
-		</div>
-		<br>
+	<header class="post-header">
+		<h1 class="post-title">{{ page.title }}</h1>
+	</header>
 	
-	{% endfor %}
+	<div class="article">
+
+		<div class="container">
+
+			{% assign sorted_publi = site.publications | sort:"date" | reverse %}
+			{% for publication in sorted_publi %}
+				{% assign current_date = publication.date | date: "%Y" %}
+				{% if current_date != date %}
+					<h3 class="category">{{ current_date }}</h3>
+					{% assign date = current_date %}
+				{% endif %}
+				
+				<div class="list-group">
+					<a class="list-group-item list-group-item-action align-items-start" href="{{ publication.url | relative_url }}">
+						<div class="d-flex flex-row justify-content-between">
+							<h5><b>{{ publication.title }}</b></h5>
+							<h5>{{ publication.date | date: "%B %Y" }}</h5>
+						</div>
+						<h5>{{ publication.authors }}</h5>
+						{% if publication.conference %}
+							<h5>{{ publication.conference }}</h5>
+						{% elsif publication.journal %}
+							<h5>{{ publication.journal }}</h5>
+						{% endif %}
+					</a>
+				</div>
+				<br>
+			
+			{% endfor %}
+		</div>
+	</div>
 </div>
