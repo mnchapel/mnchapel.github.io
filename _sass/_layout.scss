@@ -90,6 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 
 figure, img {
   max-width: 90vw;
+  margin: 0rem;
 }
 
 .badge {
@@ -123,7 +124,18 @@ figure, img {
 
 .post-title {
 	color: var(--global-theme-color);
-  }
+}
+
+.post-list {
+	padding: 0;
+
+	li {
+		border-bottom: 1px solid var(--global-divider-color);
+		list-style: none;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+}
 
 // -------
 // Profile
