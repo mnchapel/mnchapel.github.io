@@ -53,8 +53,10 @@ layout: default
 					{% for publication in sorted_publi %}
 						<li class="list-group-item">
 							<div class="row">
-								<div class="col-xs-2 cl-sm-2 col-md-2 text-center">
-									{{ publication.date | date: "%Y" }}
+								<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto">
+									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+										{{ publication.date | date: "%Y" }}
+									</span>
 								</div>
 								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
 									<b>{{ publication.title }}</b><br>
@@ -82,10 +84,14 @@ layout: default
 					{% for experience in sorted_xp %}
 						<li class="list-group-item">
 							<div class="row">
-								<div class="col-xs-2 cl-sm-2 col-md-2 text-center">
-									{{ experience.start_date | date: "%b %Y" }}
+								<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto">
+									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+										{{ experience.start_date | date: "%m-%Y" }}
+									</span>
 									<br>
-									{{ experience.end_date | date: "%b %Y" }}
+									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+										{{ experience.end_date | date: "%m-%Y" }}
+									</span>
 								</div>
 								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
 									<p>
@@ -143,7 +149,7 @@ layout: default
 				<ul class="card-text list-group list-group-flush">
 					<li class="list-group-item">
 						<div class="row">
-							<div class="col-xs-2 cl-sm-2 col-md-2 text-center"></div>
+							<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto"></div>
 							<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
 									Windows, Linux<br>
 									Modern C++, Python, Octave<br>
