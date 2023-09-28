@@ -10,15 +10,15 @@ layout: default
 	
 	<div class="article">
 
-		<div class="container">
+		{% assign sorted_publi = site.publications | sort:"date" | reverse %}
+		{% for publication in sorted_publi %}
+			{% assign current_date = publication.date | date: "%Y" %}
+			{% if current_date != date %}
+				<h3 class="category">{{ current_date }}</h3>
+				{% assign date = current_date %}
+			{% endif %}
 
-			{% assign sorted_publi = site.publications | sort:"date" | reverse %}
-			{% for publication in sorted_publi %}
-				{% assign current_date = publication.date | date: "%Y" %}
-				{% if current_date != date %}
-					<h3 class="category">{{ current_date }}</h3>
-					{% assign date = current_date %}
-				{% endif %}
+			<div class="card">
 				
 				<div class="list-group">
 					<a class="list-group-item list-group-item-action align-items-start" href="{{ publication.url | relative_url }}">
@@ -34,9 +34,10 @@ layout: default
 						{% endif %}
 					</a>
 				</div>
-				<br>
+			</div>
+			<br>
+		
+		{% endfor %}
 			
-			{% endfor %}
-		</div>
 	</div>
 </div>

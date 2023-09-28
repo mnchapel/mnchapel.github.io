@@ -3,13 +3,14 @@ layout: default
 ---
 
 <div class="post">
-	
+
 	<header class="post-header">
 		<h1 class="post-title">{{ page.title }}</h1>
 		<p class="post-description">{{ page.description }}</p>
 	</header>
 
 	<div class="article">
+		
 		{%- for category in page.display_categories %}
 
 			<h3 class="category">{{ category | capitalize }}</h3>
@@ -22,23 +23,27 @@ layout: default
 					<a href="{{ project.url | relative_url }}">
 						<div class="card hoverable">
 
-							{% assign img_class = "img-fluid z-depth-1" %}
-							{% assign img_path = project.img_filename %}
-							{% include figure.html
-								path=img_path
-								class=img_class
-								alt=page.image %}
-								
 							<div class="card-body">
-								<p class="card-title">{{ project.title }}</p>
+								{% assign img_class = "img-fluid z-depth-1" %}
+								{% assign img_path = project.img_filename %}
+								{% include figure.html
+									path=img_path
+									class=img_class
+									alt=page.image %}
+
+								<p class="card-title mt-4">{{ project.title }}</p>
 							</div>
-							<hr>
-							<p class="card-text center">{{ project.type }}</p>
+
+							<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+								{{ project.type }}
+							</span>
+							
 						</div>
 					</a>
 				{% endfor %}
 					
 			</div>
 		{% endfor %}
+
 	</div>
 </div>
