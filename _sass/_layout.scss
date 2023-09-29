@@ -105,6 +105,16 @@ figure, img {
 	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important
 }
 
+.btn:focus {
+	outline: none;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+
+pre {
+    text-align: left;
+    white-space: pre-line;
+}
+
 // -------
 // Icons
 // -------
@@ -173,26 +183,42 @@ figure, img {
 	}
   }
   
-  .profile.float-right {
+.profile.float-right {
 	margin-left: 1rem;
-  }
+}
   
-  .profile.float-left {
+.profile.float-left {
 	margin-right: 1rem;
-  }
+}
 
-  @media (min-width: 576px) {
+@media (min-width: 576px) {
 	.profile {
-	  width: 30%;
+		width: 30%;
   
-	  .address {
-		p {
-		  display: block;
+		.address {
+			p {
+				display: block;
+			}
 		}
-	  }
 	}
-  }
+}
 
+// ------------
+// Publications
+// ------------
+.publication {
+	a {
+		text-decoration: none;
+
+		&:hover {
+			color: var(--global-txt-color);
+
+			.card-title {
+				color: var(--global-theme-color);
+			}
+		}
+	}
+}
 
 // --------
 // Projects

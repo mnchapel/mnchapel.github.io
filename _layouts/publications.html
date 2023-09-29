@@ -12,31 +12,108 @@ layout: default
 
 		{% assign sorted_publi = site.publications | sort:"date" | reverse %}
 		{% for publication in sorted_publi %}
+
 			{% assign current_date = publication.date | date: "%Y" %}
 			{% if current_date != date %}
 				<h3 class="category">{{ current_date }}</h3>
 				{% assign date = current_date %}
 			{% endif %}
 
-			<div class="card">
-				
-				<div class="list-group">
-					<a class="list-group-item list-group-item-action align-items-start" href="{{ publication.url | relative_url }}">
-						<div class="d-flex flex-row justify-content-between">
-							<h5><b>{{ publication.title }}</b></h5>
-							<h5>{{ publication.date | date: "%B %Y" }}</h5>
+			<div class="publication">
+				<div class="card hoverable">
+					<div class="card-body">
+						<div class="row row-cols-2">
+
+							<!-- Column 0 -->
+							<div class="col-xs-10 cl-sm-10 col-md-10">
+								<a href="{{ publication.url | relative_url }}">
+									
+									<!-- Title -->
+									<h4 class="card-title"><b>{{ publication.title }}</b></h4>
+									
+									<!-- Authors -->
+									<p class="mb-1">{{ publication.authors }}</p>
+									
+									<!-- Conference / Journal -->
+									{% if publication.conference %}
+										<p class="mb-1"><i>{{ publication.conference }}</i></p>
+									{% elsif publication.journal %}
+										<p class="mb-1"><i>{{ publication.journal }}</i></p>
+									{% endif %}
+
+									<!-- Date -->
+									<p class="mb-1">{{ publication.date | date: "%B %Y" }}</p>
+								</a>
+							</div>
+
+							<!-- Column 1 -->
+							<div class="col-xs-2 cl-sm-2 col-md-2 center">
+
+								<!-- Cite button -->
+								<button class="btn btn-primary badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; border: 0;" data-toggle="modal" data-target="#modal_citation">
+									cite
+								</button>
+
+								<!-- PDF link -->
+								{% if publication.pdf_filename %}
+								<a href="{{ site_url }}/assets/pdf/{{ publication.pdf_filename }}">
+									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+										pdf
+									</span>
+								</a>
+								{% endif %}
+
+								<!-- GitHub link-->
+								{% if publication.pdf_filename %}
+								<a href="{{ publication.github_repository }}">
+									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+										github
+									</span>
+								</a>
+								{% endif %}
+
+							</div>
+
 						</div>
-						<h5>{{ publication.authors }}</h5>
-						{% if publication.conference %}
-							<h5>{{ publication.conference }}</h5>
-						{% elsif publication.journal %}
-							<h5>{{ publication.journal }}</h5>
-						{% endif %}
-					</a>
+					</div>
 				</div>
+				
+				<br>
 			</div>
-			<br>
-		
+
+		<!-- Modal citation -->
+		<div class="modal fade" id="modal_citation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+
+				<!-- Header -->
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Cite</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+
+				<!-- Body -->
+				<div class="modal-body">
+					{% highlight bibtex %}
+						@{{- publication.publication_type -}} { {{- publication.key -}},
+							title = { {{- publication.title -}} },
+							author = { {{- publication.authors -}} },
+							{% if publication.booktitle %} booktitle = { {{- publication.booktitle -}} }, {% elsif publication.journal %} journal = { {{- publication.journal -}} },
+							{% endif %}
+						  	year = { {{- publication.date | date: "%Y" -}} },
+						  	pages = { {{- publication.pages -}} },
+						  	doi = { {{- publication.doi -}} },
+						  	{%- if publication.isbn -%} isbn={ {{- publication.isbn -}} } {% endif %}
+						}
+					{% endhighlight %}
+				</div>
+				
+			  </div>
+			</div>
+		  </div>
+
 		{% endfor %}
 			
 	</div>

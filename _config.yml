@@ -63,6 +63,11 @@ collections:
 # -----------------------------------------------------------------------------
 # Jekyll settings
 # -----------------------------------------------------------------------------
+
+# Markdown and highlighter
+markdown: kramdown
+highlighter: rouge
+
 include: 
   - "_pages"
 exclude:

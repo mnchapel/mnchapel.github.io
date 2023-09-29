@@ -20,7 +20,7 @@ layout: default
 		<div class="row justify-content-center">
 			<h5>
 				{% if page.pdf_filename %}
-					<a href="{{ site_url}}/assets/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
+					<a href="{{ site_url }}/assets/pdf/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
 				{% endif %}
 				{% if page.github_repository %}
 					<a href="{{ page.github_repository }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
@@ -46,25 +46,16 @@ layout: default
 				<p><b>Citation</b></p>
 			</div>
 			<div class="row">
-				<div class="bibtex">
-					<p>
-						{{ page.publication_type }} { {{ page.key }},<br>
-							author={ {{ page.authors }} },<br>
-							title={ {{ page.title }} },<br>
-							{% if page.booktitle %}
-							booktitle={ {{ page.booktitle }} },<br>
-							{% elsif page.journal %}
-							journal={ {{ page.journal }} },<br>
-							{% endif %}
-							year={ {{ page.date | date: "%Y" }} },<br>
-							pages={ {{ page.pages }} },<br>
-							doi={ {{ page.doi }} },<br>
-							{% if page.isbn %}
-								isbn={ {{ page.isbn }} },<br>
-							{% endif %}
-						}
-					</p>
-				<div>
+				{% highlight bibtex %}
+					@{{- page.publication_type -}} { {{- page.key -}},
+					  author = { {{- page.authors -}} },
+					  title = { {{- page.title -}} },
+					  {% if page.booktitle %} booktitle={ {{- page.booktitle -}} }, {% elsif page.journal %} journal={ {{- page.journal -}} }, {% endif %}
+					  year = { {{- page.date | date: "%Y" -}} },
+					  pages = { {{- page.pages -}} },
+					  doi = { {{- page.doi -}} },
+					}
+				{% endhighlight %}
 			</div>
 		{% endif %}
 
