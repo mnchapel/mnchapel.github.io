@@ -21,7 +21,7 @@ project_abstract: "In a context of increasing dematerialization of procedures an
 
 more_info: "https://www.cryptoexperts.com/research/projects/idecys/"
 
-personal_work_abstract: "aaa"
+personal_work_abstract: "Creating a digital identity involves authenticating an identity document. To prevent identity theft, documents incorporate various security features such as guilloches or holograms. My work on the Idecys+ project focuses on the recognition of the latter."
 
 keywords: "Pattern recognition, Texture descriptor"
 
