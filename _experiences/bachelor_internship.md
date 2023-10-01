@@ -1,5 +1,5 @@
 ---
-type: Internship student
+type: B.Sc. internship
 location: Meylan, France
 title: iOS development
 organization: CYBERIO

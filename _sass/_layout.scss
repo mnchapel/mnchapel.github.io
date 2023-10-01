@@ -3,11 +3,17 @@
 // -------
 
 p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
-  color: var(--global-text-color);
+	color: var(--global-text-color);
 }
 
 a {
-	color: var(--global-text-color)
+	text-decoration: none;
+	color: var(--global-text-color);
+
+	&:hover {
+		color: var(--global-theme-color);
+		text-decoration: none;
+	}
 }
 
 h4 {
@@ -172,16 +178,16 @@ pre {
 	width: 100%;
   
 	.address {
-	  margin-bottom: 5px;
-	  margin-top: 5px;
-	  font-family: monospace;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		font-family: monospace;
   
-	  p {
-		display: inline-block;
-		margin: 0;
-	  }
+		p {
+			display: inline-block;
+			margin: 0;
+		}
 	}
-  }
+}
   
 .profile.float-right {
 	margin-left: 1rem;
@@ -233,10 +239,26 @@ pre {
 		margin: 10px;
 
 		&:hover {
+			color: var(--global-txt-color);
+
 			.card-title {
 				color: var(--global-theme-color)
 			}
 		}
+	}
+}
+
+.members{
+	display: flex;
+	flex-wrap: wrap;
+
+	.organization {
+		flex-grow: 1;
+	}
+
+	li {
+		display: flex;
+		flex-wrap: wrap;
 	}
 }
 

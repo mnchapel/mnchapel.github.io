@@ -1,5 +1,5 @@
 ---
-type: Master's internship
+type: M.Sc. internship
 location: Villeurbanne, France
 title: Plastic Cities
 organization: LIRIS

@@ -5,70 +5,93 @@ layout: default
 <div class="post">
 	<div class="article">
 
+		<!-- Title -->
 		<header class="post-header">
 			<h1 class="post-title center">{{ page.title }}</h1>
 		</header>
 
-	{% if page.partners %}
-		<div class="row">
-			<p></i><b>Partners</b>: {{page.partners}} </p>
-		</div>
-	{% endif %}
-
-	<div class="row">
-		<p><i class="fa fa-user-circle-o" aria-hidden="true"></i><b> Members</b>:</p>
-	</div>
-	<div class="row">
-		<ul>
-			{% for member in page.members %}
-				<li>{{member}}</li>
-			{% endfor %}
-		</ul>
-	</div>
+		<br>
 		
-	<div class="row">
-		<p><b>Abstract</b></p>
-		<p class="justify alinea">{{page.abstract}}</p>
-	</div>
+		<!-- Project Abstract -->
+		<h4><b>Project abstract</b></h4>
+		<p class="justify alinea">
+			{{page.project_abstract}}
+			{% if page.more_info %}
+				<a href="{{ page.more_info }}">[More information]</a>
+			{% endif %}
+		</p>
+
+		<!-- Personal Work Abstract -->
+		{% if page.personal_work_abstract %}
+			<h4><b>Personal work abstract</b></h4>
+			<p class="justify alinea">{{ page.personal_work_abstract }}</p>
+		{% endif %}
 	
-	<div class="row">
-		<p><b>Keywords</b>: {{page.keywords}}</p>
-	</div>
-	
-	{% if page.committee %}
-		<div class="row">
-			<p><b>Committee</b></p><br>
+		<!-- Keywords -->
+		<h4><b>Keywords</b></h4>
+		<p class="justify alinea">
+			{{page.keywords}}
+		</p>
+		
+		<br>
+
+		<!-- Members -->
+		<div class="members">
+			{% for group in page.members %}
+			<div class="organization">
+				<div>
+					<span class="social-icon"><i class=" fa fa-user-circle-o" aria-hidden="true"></i></span>
+					{% assign organization_url = site.data.urls | where: "name", group.organization | first %}
+					<b> <a href="{{ organization_url.url }}">{{group.organization}}</a></b>
+				</div>
+				<ul>
+					{% for member in group.members %}
+						<li>{{ member }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endfor %}
 		</div>
-		<div class="row">
+
+		<br>
+	
+		<!-- Committee (thesis) -->
+		{% if page.committee %}
+			<h4><b>Committee</b></h4>
 			<ul>
 				{% for item in page.committee %}
 					<li>{{item}}</li>
 				{% endfor %}
 			</ul>
-		</div>
-	{% endif %}
+		{% endif %}
 	
-	{% if page.publications %}
-		<div class="row">
-			<p><b>Publications</b>
+		<!-- Publications -->
+		{% if page.publications %}
+			<h4><b>My publications</b></h4>
+
 			{% if page.publications.first %}
-			</p>
-			</div>
-			<ul>
-				{% for item in page.publications %}
-					{% assign publi_list = site.publications %}
-					{% for publi in publi_list %}
-						{% if item == publi.filename %}
-							{% assign publi_year = publi.date | date: "%Y" %}
-							<li>{{publi.authors}}, "{{publi.title}}", {% if publi.conference %} {{publi.conference}} {% elsif publi.journal %} {{publi.journal}} {% endif %}, {{publi_year}}</li>
-						{% endif %}
+				<ul>
+					{% for item in page.publications %}
+						{% assign publi_list = site.publications %}
+
+						{% for publi in publi_list %}
+							{% if item == publi.filename %}
+								{% assign publi_year = publi.date | date: "%Y" %}
+								<li class="justify">
+									<a href="{{site.baseurl}}/publications/{{item}}">
+										{{publi.authors}}, "{{publi.title}}", {% if publi.conference %} {{publi.conference}} {% elsif publi.journal %} {{publi.journal}} {% endif %}, {{publi_year}}
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+
 					{% endfor %}
-				{% endfor %}
-			</ul>
+				</ul>
 			{% else %}
-				: {{page.publications}}</p></div>
+				{{page.publications}}
 			{% endif %}
-	{% endif %}
+
+		{% endif %}
 
 	</div>
 </div>

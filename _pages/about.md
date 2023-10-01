@@ -10,8 +10,7 @@ profile:
   job: Postdoctoral researcher
   address: L3i, La Rochelle Université
 
-interests: >
-    <p>Computer Vision</p>
+interests: ["Background Subtraction", "Object Tracking", "Pattern Recognition"]
 ---
 
 <p>My research mainly focused on the use of background subtraction technics to detect moving objects during my PhD but also during my research projects as a postdoctoral researcher.</p>

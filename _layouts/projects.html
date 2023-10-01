@@ -21,7 +21,7 @@ layout: default
 
 				{% for project in sorted_projects %}
 					<a href="{{ project.url | relative_url }}">
-						<div class="card hoverable">
+						<div class="card hoverable h-100">
 
 							<div class="card-body">
 								{% assign img_class = "img-fluid z-depth-1" %}
@@ -31,7 +31,9 @@ layout: default
 									class=img_class
 									alt=page.image %}
 
-								<p class="card-title mt-4">{{ project.title }}</p>
+								<!-- <h4 class="mt-4">{{ project.title }}</h4> -->
+								<p class="card-title mt-4"><b>{{ project.title }}</b></p>
+								<p class="mt-2">{{ project.description }}</p>
 							</div>
 
 							<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">

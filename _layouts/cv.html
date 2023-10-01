@@ -28,49 +28,20 @@ layout: default
 					<tbody>
 						<tr>
 							<td class="p-15 py-1 text-right align-self-center"><b>Full Name</b></td>
-							<td class="p-15 py-1">Marie-Neige Chapel</td>
+							<td class="p-15 py-1">{{ site.author.name }}</td>
 						</tr>
 						<tr>							
 							<td class="p-15 py-1 text-right"><b>Location</b></td>
-							<td class="p-15 py-1">La Rochelle</td>
+							<td class="p-15 py-1">{{ site.author.location }}</td>
 						</tr>
 						<tr>							
 							<td class="p-15 py-1 text-right"><b>Mail</b></td>
-							<td class="p-15 py-1">marieneigecha@gmail.com</td>
+							<td class="p-15 py-1">{{ site.author.email }}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-
-		<!-- Publications -->
-		{% assign sorted_publi = site.publications | sort:"date" | reverse %}
-
-		<div class="card mt-3 p-4">
-			<h3 class="card-title cv-category">Publications</h3>
-			<div>
-				<ul class="card-text list-group list-group-flush">
-					{% for publication in sorted_publi %}
-						<li class="list-group-item">
-							<div class="row">
-								<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto">
-									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-										{{ publication.date | date: "%Y" }}
-									</span>
-								</div>
-								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
-									<b>{{ publication.title }}</b><br>
-									{{ publication.authors }}<br>
-									{{ publication.conference }}	
-								</div>
-							</tr>
-						</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
-
-		<br>
 
 		<!-- Professional Experience -->
 		{% assign sorted_xp = site.experiences | sort:"start_date" | reverse %}
@@ -86,11 +57,11 @@ layout: default
 							<div class="row">
 								<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto">
 									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-										{{ experience.start_date | date: "%m-%Y" }}
+										{{ experience.end_date | date: "%m.%Y" }}
 									</span>
 									<br>
 									<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-										{{ experience.end_date | date: "%m-%Y" }}
+										{{ experience.start_date | date: "%m.%Y" }}
 									</span>
 								</div>
 								<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
@@ -98,7 +69,7 @@ layout: default
 										<b>{{ experience.type }}</b>, 
 									
 										{% if experience.organization_url %}
-											<i><a href="{{ experience.organization_url }}">{{ experience.organization }} <i class="fa fa-external-link" style="font-size:10px"></i></a>, {{ experience.location }}</i><br>
+											<i><a href="{{ experience.organization_url }}">{{ experience.organization }}</a>, {{ experience.location }}</i><br>
 										{% else %}
 											<i>{{ experience.organization }}, {{ experience.location }}</i><br>
 										{% endif %}
@@ -112,7 +83,7 @@ layout: default
 												{% for xp_title in experience.title %}
 													{% for research_proj in projects %}
 														{% if research_proj.filename == xp_title %}
-															<li><a href="projects/{{ research_proj.filename }}">"{{ research_proj.title }}" <i class="fa fa-link"></i></a></li>
+															<li><a href="projects/{{ research_proj.filename }}">{{ research_proj.title }}</a></li>
 														{% endif %}
 													{% endfor %}
 												{% endfor %}
@@ -140,25 +111,67 @@ layout: default
 			</div>
 		</div>
 
+		<!-- Publications -->
+		{% assign sorted_publi = site.publications | sort:"date" | reverse %}
+
+		<div class="card mt-3 p-4">
+			<h3 class="card-title cv-category">Publications</h3>
+			<div>
+				<ul class="card-text list-group list-group-flush">
+					{% for publication in sorted_publi %}
+						<li class="list-group-item">
+							<a href="{{ site_url }}/publications/{{ publication.filename }}">
+								<div class="row">
+									<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto">
+										<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+											{{ publication.date | date: "%Y" }}
+										</span>
+									</div>
+									<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
+										<b>{{ publication.title }}</b><br>
+										{{ publication.authors }}<br>
+										{{ publication.conference }}	
+									</div>
+								</div>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
 		<!-- Skills -->
 		<div class="card mt-3 p-4">
 
 			<h3 class="card-title cv-category">Skills</h3>
 			
 			<div>
-				<ul class="card-text list-group list-group-flush">
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-2 cl-sm-2 col-md-2 text-center my-auto"></div>
-							<div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-10">
-									Windows, Linux<br>
-									Modern C++, Python, Octave<br>
-									OpenCV, PyTorch, Qt<br>
-									Git, CMake
-							</div>
-						</div>
-					</li>
-				</li>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th class="p-0" style="width: 16.66%"></th>
+							<th class="p-0"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="p-15 py-1 text-right align-self-center"><b>OS</b></td>
+							<td class="p-15 py-1">Windows, Linux</td>
+						</tr>
+						<tr>
+							<td class="p-15 py-1 text-right align-self-center"><b>Languages</b></td>
+							<td class="p-15 py-1">Modern C++, Python, Octave</td>
+						</tr>
+						<tr>
+							<td class="p-15 py-1 text-right align-self-center"><b>Libs/Frameworks</b></td>
+							<td class="p-15 py-1">OpenCV, PyTorch, Qt</td>
+						</tr>
+						<tr>
+							<td class="p-15 py-1 text-right align-self-center"><b>Others</b></td>
+							<td class="p-15 py-1">Git, CMake</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 

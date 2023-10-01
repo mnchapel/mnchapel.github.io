@@ -1,0 +1,8 @@
+- name: "LIRIS"
+  url: "https://liris.cnrs.fr/"
+- name: "L3i"
+  url: "https://l3i.univ-larochelle.fr/"
+- name: "VISIOON"
+  url: "https://www.visioon.org/fr"
+- name: "LIENSs"
+  url: "https://lienss.univ-larochelle.fr/"

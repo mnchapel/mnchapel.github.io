@@ -1,4 +1,4 @@
-- institution: "Université Claude Bernard Lyon 1"
+- organization: "Université Claude Bernard Lyon 1"
   year: "2014 - 2017"
   classes:
     - title: "LiF1: Algorithmics, imperative programming, introduction (C)"

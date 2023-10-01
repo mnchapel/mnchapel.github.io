@@ -21,9 +21,12 @@ layout: default
 			<!-- Content -->
 			<article>
 				<div class="clearfix">
-					{{ content }}
+					<div class="justify">
+						{{ content }}
+					</div>
 					<br>
 					<div class="d-flex flex-wrap flex-md-row flex-column justify-content-between">
+						<!-- Interests -->
 						<div>
 							<h4><i class="fa fa-star" aria-hidden="true"></i> Interests</h4>
 							<ul>
@@ -32,13 +35,17 @@ layout: default
 								{% endfor %}
 							</ul>
 						</div>
+						<!-- Education -->
 						<div>
 							<h4><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</h4>
 							<ul>
 								{% for entry in site.data.cv %}
 									{% if entry.title == "Education" %}
 										{% for content in entry.contents %}
-											<li>{{ content.title }}</li>
+											<li>
+												<p class="m-0">{{ content.title }}, {{ content.year }}</p>
+												<p class="m-0" style="font-size: 0.75rem;"><i>{{ content.organization }}</i></p>
+											</li>
 										{% endfor %}
 									{% endif %}
 								{% endfor %}
@@ -50,6 +57,7 @@ layout: default
 		</div>
 		
 		<!-- Column 1 -->
+		<!-- Profile photo -->
 		<div class="col-xs-3 cl-sm-3 col-md-3">
 
 			<!-- Photo -->
@@ -66,6 +74,7 @@ layout: default
 		</div>
 		
 		<!-- Column 2 -->
+		<!-- Social icons -->
 		<div class="social-icon col-xs-1 cl-sm-1 col-md-1 center p-0">
 			<a href="mailto:{{ site.author.email | encode_email }}" title="Mail">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
