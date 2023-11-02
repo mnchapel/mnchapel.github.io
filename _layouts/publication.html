@@ -20,13 +20,14 @@ layout: default
 		<div class="row justify-content-center">
 			<h5>
 				{% if page.pdf_filename %}
-					<a href="{{ site_url }}/assets/pdf/{{ page.pdf_filename }}"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
+					<a href="{{ site_url }}/assets/pdf/{{ page.pdf_filename }}"><i class="fa fa-regular fa-file-pdf fa-2x" aria-hidden="true"></i></a>
 				{% endif %}
 				{% if page.github_repository %}
-					<a href="{{ page.github_repository }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+					<a href="{{ page.github_repository }}"><i class="fa fa-brands fa-github fa-2x" aria-hidden="true"></i></a>
 				{% endif %}
 			</h5>
 		</div>
+		<br>
 		
 		<div class="row">
 			{% if page.conference %}

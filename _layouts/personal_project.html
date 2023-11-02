@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="post">
+	<div class="article">
+
+		<!-- Title -->
+		<header class="post-header">
+			<h1 class="post-title center">{{ page.title }}</h1>
+		</header>
+		
+		<div class="row justify-content-center">
+			<h5>
+				{% if page.github_repository %}
+					<a href="{{ page.github_repository }}"><i class="fa fa-brands fa-github fa-2x" aria-hidden="true"></i></a>
+				{% endif %}
+			</h5>
+		</div>
+
+		<br>
+		
+		<!-- Project Abstract -->
+		<h4><b>Project abstract</b></h4>
+		<p class="justify alinea">
+			{{page.project_abstract}}
+			{% if page.more_info %}
+				<a href="{{ page.more_info }}">[More information]</a>
+			{% endif %}
+		</p>
+
+		<!-- Personal Work Abstract -->
+		{% if page.personal_work_abstract %}
+			<h4><b>Personal work abstract</b></h4>
+			<p class="justify alinea">{{ page.personal_work_abstract }}</p>
+		{% endif %}
+
+	</div>
+</div>

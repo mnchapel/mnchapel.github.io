@@ -40,9 +40,8 @@ layout: default
 			{% for group in page.members %}
 			<div class="organization">
 				<div>
-					<span class="social-icon"><i class=" fa fa-user-circle-o" aria-hidden="true"></i></span>
 					{% assign organization_url = site.data.urls | where: "name", group.organization | first %}
-					<b> <a href="{{ organization_url.url }}">{{group.organization}}</a></b>
+					<h4><i class="fa fa-solid fa-users"></i><b><a href="{{ organization_url.url }}"> {{group.organization}}</a></b></h4>
 				</div>
 				<ul>
 					{% for member in group.members %}
