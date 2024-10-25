@@ -8,7 +8,7 @@ navbar_order: 0
 profile:
   image: photo_profil.jpg
   job: Postdoctoral researcher
-  address: L3i, La Rochelle Université
+  address: LTSI, Université Rennes 1
 
 interests: ["Background Subtraction", "Object Tracking", "Pattern Recognition"]
 ---
